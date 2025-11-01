@@ -7,34 +7,32 @@ st.set_page_config(layout="wide")
 st.title('📊 Crime Analysis: Socioeconomic Factors vs. Offense Count')
 st.markdown("Exploring the relationship between **Income**, **Poverty**, and total **Offense Count** across different City Categories.")
 
+st.header("🎯 Objective Statement")
+st.markdown("""
+The objective of this visualization is to explore the relationship between socioeconomic factors — **Income** and **Poverty Percentage** — 
+and total **Offense Count** across different city categories. 
+This helps identify patterns linking wealth, poverty, and crime incidence.
+""")
+
 url = "https://raw.githubusercontent.com/s22a0064-AinMaisarah/Crime_Assaigment/refs/heads/main/df_uber_cleaned.csv"
 df = pd.read_csv(url)
-try:
-    # Check if df_uber_cleaned is defined
-    df_uber_cleaned
-except NameError:
-    st.info("Creating a placeholder DataFrame for demonstration. **Replace this with your actual data loading.**")
-    N = 200
-    np.random.seed(42)
-    data = {
-        'income': np.random.normal(70000, 25000, N),
-        'poverty': np.random.normal(15, 5, N),
-        # Offense count slightly correlated with poverty and inversely with income
-        'offense_count': np.random.randint(50, 200, N) + (30 - np.random.normal(10, 5, N) / 2) * 5, 
-        'city_cat': np.random.choice([0, 1], N, p=[0.6, 0.4]).astype(str), # Convert to string for color
-        'violent_crime': np.random.rand(N) * 10,
-        'property_crime': np.random.rand(N) * 15,
-        'whitecollar_crime': np.random.rand(N) * 5,
-        'social_crime': np.random.rand(N) * 8,
-        'state': np.random.choice(['NY', 'CA', 'TX', 'FL'], N),
-        'age': np.random.choice(['18-25', '26-35', '36-45', '46+'], N),
-    }
-    df_uber_cleaned = pd.DataFrame(data)
 
-# Ensure 'city_cat' is string for discrete coloring
-df_uber_cleaned['city_cat'] = df_uber_cleaned['city_cat'].astype(str)
+st.header("📊 Summary of Analysis")
 
-# ---
+col1, col2, col3, col4 = st.columns(4)
+
+col1.metric(label="Average Income", value=f"${df_uber_cleaned['income'].mean():,.0f}")
+col2.metric(label="Average Poverty %", value=f"{df_uber_cleaned['poverty'].mean():.2f}%")
+col3.metric(label="Average Offense Count", value=f"{df_uber_cleaned['offense_count'].mean():.0f}")
+col4.metric(label="Number of Cities", value=f"{df_uber_cleaned['city_cat'].nunique()}")
+
+st.markdown("""
+**Summary:** The scatter plots indicate that higher income areas generally have slightly lower offense counts, 
+while regions with higher poverty tend to experience more offenses. City categories show distinct clusters, 
+indicating that urban socioeconomic characteristics influence crime patterns. 
+Trendlines (OLS) highlight these correlations, providing insights for policy planning and resource allocation.
+""")
+
 ## 📈 Interactive Scatter Plots
 
 # Create two columns to display the plots side-by-side
@@ -88,4 +86,12 @@ with col2:
     fig_poverty_offense.update_layout(legend_title_text='City Category')
 
     # Use st.plotly_chart() to display the Plotly figure
-    st.plotly_chart(fig_poverty_offense, use_container_width=True)
+    st.plotly_chart(fig_poverty_offense, use_container_width=True) 
+    st.header("📝 Interpretation / Discussion")
+st.markdown("""
+- **Income vs. Offense Count:** There is a weak negative correlation between income and offense count; higher-income areas tend to have slightly fewer offenses.
+- **Poverty % vs. Offense Count:** Areas with higher poverty levels generally experience more offenses, consistent with socioeconomic crime theories.
+- **City Category Differences:** City Category I (1) shows slightly higher offense counts at lower income levels, while Category II (0) clusters differently, indicating demographic and structural variations.
+- These patterns suggest targeted interventions based on city socioeconomic profiles could improve crime prevention strategies.
+""")
+
