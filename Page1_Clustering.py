@@ -1,7 +1,5 @@
 import streamlit as st
 import pandas as pd
-from sklearn.cluster import KMeans
-from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 import plotly.express as px
 
