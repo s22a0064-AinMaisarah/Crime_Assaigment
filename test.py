@@ -1,6 +1,6 @@
 import streamlit as st
 st.set_page_config(
-    page_title="Student Survey"
+    page_title="SCrime Analytics Dashboard"
 )
 visualise = st.Page('Crime.py', title='Crime Visualization Dashboard ', icon=":material/school:")
 
