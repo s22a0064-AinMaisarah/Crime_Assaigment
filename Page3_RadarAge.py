@@ -6,11 +6,8 @@ import numpy as np # Needed for creating a dummy dataframe if you don't have the
 ## 🎨 Streamlit App Title
 st.title('Interactive Radar Chart: Average Crime Scores by Age Group and Crime Type')
 
-# ---
-### ⚙️ Data Preparation (Example/Placeholder)
-
-# **NOTE:** Replace this section with your actual data loading and cleaning, 
-# for instance: 'df_uber_cleaned = pd.read_csv("your_data.csv")'
+url = "https://raw.githubusercontent.com/s22a0064-AinMaisarah/Crime_Assaigment/refs/heads/main/df_uber_cleaned.csv"
+df = pd.read_csv(url)
 
 try:
     # Check if df_uber_cleaned is defined (assuming it's available in a real app context)
