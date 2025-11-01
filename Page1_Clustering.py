@@ -21,11 +21,8 @@ using K-Means clustering and visualizing these patterns with PCA for a 2D intera
 This helps understand how different crime types co-occur across regions and demographics.
 """)
 
-# ---
-## ⚙️ Data Preparation (Example/Placeholder)
-
-# **NOTE:** Replace this placeholder with your actual data loading:
-# e.g., 'df_uber_cleaned = pd.read_csv("your_data.csv")'
+url = "https://raw.githubusercontent.com/nadiashahzanani/Sleep-Anxiety-Visualization/refs/heads/main/Time_to_think_Norburyy.csv"
+df = pd.read_csv(url)
 
 try:
     # Check if df_uber_cleaned is defined (assuming it's available in a real app context)
