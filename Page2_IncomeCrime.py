@@ -7,12 +7,8 @@ st.set_page_config(layout="wide")
 st.title('📊 Crime Analysis: Socioeconomic Factors vs. Offense Count')
 st.markdown("Exploring the relationship between **Income**, **Poverty**, and total **Offense Count** across different City Categories.")
 
-# ---
-## ⚙️ Data Preparation (Example/Placeholder)
-
-# **NOTE:** Replace this placeholder with your actual data loading:
-# e.g., 'df_uber_cleaned = pd.read_csv("your_data.csv")'
-
+url = "https://raw.githubusercontent.com/s22a0064-AinMaisarah/Crime_Assaigment/refs/heads/main/df_uber_cleaned.csv"
+df = pd.read_csv(url)
 try:
     # Check if df_uber_cleaned is defined
     df_uber_cleaned
