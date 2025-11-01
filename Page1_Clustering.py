@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
@@ -11,6 +10,7 @@ st.title("📊 Crime Clustering with PCA")
 @st.cache_data
 def load_data():
     url = "https://raw.githubusercontent.com/s22a0064-AinMaisarah/Crime_Assaigment/refs/heads/main/df_uber_cleaned.csv"
+    
     return pd.read_csv(url, encoding="cp1252")
 
 df = load_data()
