@@ -21,7 +21,7 @@ using K-Means clustering and visualizing these patterns with PCA for a 2D intera
 This helps understand how different crime types co-occur across regions and demographics.
 """)
 
-url = "https://raw.githubusercontent.com/nadiashahzanani/Sleep-Anxiety-Visualization/refs/heads/main/Time_to_think_Norburyy.csv"
+url = "https://raw.githubusercontent.com/s22a0064-AinMaisarah/Crime_Assaigment/refs/heads/main/df_uber_cleaned.csv"
 df = pd.read_csv(url)
 
 try:
