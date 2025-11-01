@@ -14,6 +14,13 @@ st.markdown("""
 This app performs K-Means clustering on crime scores after scaling and uses PCA for 2D visualization.
 """)
 
+st.header("🎯 Objective Statement")
+st.markdown("""
+The objective of this visualization is to identify patterns in urban crime by grouping similar crime profiles 
+using K-Means clustering and visualizing these patterns with PCA for a 2D interactive view. 
+This helps understand how different crime types co-occur across regions and demographics.
+""")
+
 # ---
 ## ⚙️ Data Preparation (Example/Placeholder)
 
